@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090a10">
+<title>CINEMAI — AI Video Studio</title>
+<style>
+:root{color-scheme:dark;--bg:#090a10;--panel:#121420;--panel2:#191c2b;--line:#292d40;--muted:#9da3b9;--text:#f5f5fb;--purple:#9b83ff;--cyan:#74e1df}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#29204d 0,transparent 36%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1100px;margin:auto;padding:24px 22px 64px}.nav{display:flex;align-items:center;justify-content:space-between;padding:9px 0 35px}.brand{display:flex;gap:11px;align-items:center;font-weight:850;letter-spacing:.13em;font-size:17px}.logo{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#a38aff,#55d8d1);display:grid;place-items:center;color:#10111a;font-size:18px}.pill{font-size:11px;color:#b8aaff;border:1px solid #554b85;border-radius:99px;padding:5px 10px;letter-spacing:.12em}
+.hero{padding:25px 0 28px;max-width:760px}.eyebrow{color:var(--cyan);letter-spacing:.18em;font-size:11px;font-weight:750}.hero h1{font-size:clamp(42px,7vw,72px);line-height:1.02;letter-spacing:-.055em;margin:13px 0 17px}.gradient{background:linear-gradient(90deg,#c2b5ff,#75e1df);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);font-size:17px;max-width:590px;margin:0}
+.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin-top:20px}.panel{background:linear-gradient(160deg,#151827,#10121c);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 20px 70px #0003}.panel h2{font-size:16px;margin:0 0 5px}.sub{color:var(--muted);font-size:13px;margin:0 0 20px}
+label{display:block;font-size:12px;color:#c8cbe0;font-weight:700;margin:16px 0 8px}textarea,select{width:100%;border:1px solid #34394f;border-radius:12px;background:#0c0e17;color:var(--text);padding:13px;font:inherit;outline:none}textarea{min-height:150px;resize:vertical}textarea:focus,select:focus{border-color:var(--purple);box-shadow:0 0 0 3px #9b83ff20}.hint{font-size:11px;color:#858ba4;margin-top:6px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.toggle{display:flex;align-items:center;gap:9px;color:#c6c9dc;font-size:13px;margin:16px 0}.toggle input{accent-color:#9b83ff;width:16px;height:16px}
+button{border:0;border-radius:12px;padding:13px 17px;font-weight:800;font-size:14px;cursor:pointer}.primary{width:100%;margin-top:18px;color:#11121a;background:linear-gradient(100deg,#b6a2ff,#76e0db);box-shadow:0 8px 30px #8f7bff25}.primary:disabled{opacity:.55;cursor:wait}.secondary{background:#24283a;color:#d9d9ec;border:1px solid #353a50}.preview{aspect-ratio:9/16;max-height:430px;background:linear-gradient(145deg,#171a2b,#0b0d15);border:1px dashed #424760;border-radius:15px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}.preview.landscape{aspect-ratio:16/9;max-height:none}.preview video{width:100%;height:100%;object-fit:contain;background:#05060a}.empty{text-align:center;padding:25px;color:#8e94ac}.empty .symbol{font-size:34px;margin-bottom:10px;color:#b7a7ff}.empty strong{display:block;color:#e4e3f2;margin-bottom:5px}.status{min-height:24px;color:#b9b1ff;font-size:13px;margin-top:13px}.actions{display:flex;gap:10px;margin-top:12px}.actions a{flex:1;text-align:center;text-decoration:none;background:#22263a;border:1px solid #343a52;color:#fff;padding:11px;border-radius:11px;font-size:13px;font-weight:700}.foot{color:#737991;font-size:11px;margin-top:22px}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.feature{border:1px solid var(--line);background:#11131d;border-radius:14px;padding:15px}.feature b{font-size:13px}.feature span{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.wrap{padding:16px 14px 45px}.nav{padding-bottom:22px}.panel{padding:17px}.hero p{font-size:15px}.features{grid-template-columns:1fr}.preview{max-height:480px}}
+</style>
+</head>
+<body><main class="wrap">
+<header class="nav"><div class="brand"><span class="logo">✦</span> CINEMAI</div><span class="pill">AI VIDEO STUDIO</span></header>
+<section class="hero"><div class="eyebrow">FROM IDEA TO CINEMA</div><h1>Your imagination.<br><span class="gradient">In motion.</span></h1><p>Create cinematic AI videos from a simple description. Shape the scene, choose your format, and generate.</p></section>
+<section class="layout">
+<div class="panel">
+<h2>Create a video</h2><p class="sub">Describe the scene. Be specific about subject, movement, camera and atmosphere.</p>
+<label for="prompt">YOUR VIDEO IDEA</label>
+<textarea id="prompt" maxlength="2400" placeholder="A lone astronaut walks across a vast black-sand beach beneath an enormous glowing moon. The camera slowly tracks backward as waves shimmer with bioluminescent blue light. Photorealistic, cinematic lighting, atmospheric fog..."></textarea>
+<div class="hint"><span id="count">0</span>/2400 characters · Tip: describe motion, camera movement and lighting.</div>
+<div class="grid2"><div><label for="duration">DURATION</label><select id="duration"><option value="5">5 seconds</option><option value="10">10 seconds</option><option value="15">15 seconds</option></select></div><div><label for="ratio">FORMAT</label><select id="ratio"><option value="9:16">9:16 · Shorts / Reels</option><option value="16:9">16:9 · YouTube</option><option value="1:1">1:1 · Square</option></select></div></div>
+<label class="toggle"><input id="audio" type="checkbox" checked> Generate native audio where supported</label>
+<button class="primary" id="generate">✦ &nbsp; Generate video</button>
+<div class="status" id="status" role="status" aria-live="polite"></div>
+<p class="foot">Generation uses a third-party AI provider and may incur charges. Requests are subject to provider safety checks and usage limits.</p>
+</div>
+<div class="panel">
+<h2>Your creation</h2><p class="sub">Your generated video will appear here.</p>
+<div class="preview" id="preview"><div class="empty"><div class="symbol">✧</div><strong>Your next video starts here</strong><span>Describe an idea and press Generate.</span></div></div>
+<div class="actions" id="actions" hidden><a id="openVideo" target="_blank" rel="noopener">Open video ↗</a><a id="downloadVideo" download="cinemai-video.mp4">Download ↓</a></div>
+</div></section>
+<section class="features"><div class="feature"><b>✦ Cinematic generation</b><span>High-end text-to-video model integration.</span></div><div class="feature"><b>▣ Made for every screen</b><span>Portrait, landscape and square formats.</span></div><div class="feature"><b>↓ Ready to export</b><span>Preview and download your finished MP4.</span></div></section>
+<p class="foot">CINEMAI is an independent interface. Video generation is powered by a connected third-party model provider.</p>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const prompt=$("prompt"), btn=$("generate"), status=$("status"), preview=$("preview"), actions=$("actions");
+prompt.addEventListener("input",()=> $("count").textContent=prompt.value.length);
+$("ratio").addEventListener("change",()=>preview.className="preview"+($("ratio").value==="16:9"?" landscape":""));
+function enhance(text){
+ const clean=text.trim().replace(/\s+/g," ");
+ return `${clean}. High-end cinematic visual storytelling, coherent natural motion, physically realistic lighting and shadows, detailed textures, intentional composition, smooth controlled camera movement, consistent subjects and environment, professional color grading, no text, no logos, no subtitles.`;
+}
+btn.addEventListener("click", async()=>{
+ const idea=prompt.value.trim();
+ if(idea.length<8){status.textContent="Please describe your video in a little more detail.";prompt.focus();return;}
+ btn.disabled=true;btn.textContent="Generating…";status.textContent="Preparing your cinematic prompt…";actions.hidden=true;
+ preview.className="preview"+($("ratio").value==="16:9"?" landscape":"");
+ preview.innerHTML='<div class="empty"><div class="symbol">✦</div><strong>Creating your video…</strong><span>This can take a few minutes. Keep this page open.</span></div>';
+ try{
+   const response=await fetch("/api/generate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({prompt:enhance(idea),duration:$("duration").value,aspect_ratio:$("ratio").value,generate_audio:$("audio").checked})});
+   const data=await response.json();
+   if(!response.ok)throw new Error(data.error||"Generation failed.");
+   const url=data.video.url;
+   const video=document.createElement("video");video.controls=true;video.playsInline=true;video.preload="metadata";video.src=url;
+   preview.innerHTML="";preview.appendChild(video);
+   $("openVideo").href=url;$("downloadVideo").href=url;actions.hidden=false;
+   status.textContent="Your video is ready.";
+ }catch(err){
+   preview.innerHTML='<div class="empty"><div class="symbol">!</div><strong>Generation could not start</strong><span>Check the setup and try again.</span></div>';
+   status.textContent=err.message;
+ }finally{btn.disabled=false;btn.innerHTML="✦ &nbsp; Generate video";}
+});
+</script>
+</body></html>
